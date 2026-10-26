@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #147D64;
+  --color-brand-green-dark: #0E5B48;
+  --color-brand-green-light: #E9F5F1;
+  --color-brand-blue: #2357A5;
+  --color-brand-blue-dark: #183E75;
+  --color-brand-blue-light: #EEF4FC;
+  --color-brand-yellow: #F2B544;
+  --color-brand-yellow-light: #FEF7E8;
+  --color-brand-yellow-dark: #C99126;
+  --color-brand-offwhite: #F5F7F4;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-dark: #162220;
+  --color-brand-muted: #5F736C;
+  --color-brand-border: #E2E8E5;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #F5F7F4;
+    color: #162220;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom micro-animations & glass effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.subtle-gradient {
+  background: linear-gradient(135deg, rgba(20, 125, 100, 0.05) 0%, rgba(35, 87, 165, 0.05) 100%);
+}
+
+.hero-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(20, 125, 100, 0.15) 0%, rgba(242, 181, 68, 0.08) 40%, rgba(245, 247, 244, 0) 70%);
+}
+
+/* 3D Perspective Card Support */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Animation helpers */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+@keyframes scanLaser {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.animate-scan-laser {
+  animation: scanLaser 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes radarPing {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.animate-radar-ping {
+  animation: radarPing 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-bob {
+  animation: floatBob 3.5s ease-in-out infinite;
+}
+
+@keyframes shimmerWave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  animation: shimmerWave 2s infinite;
+}
+
+/* Custom range sliders */
+input[type="range"] {
+  accent-color: #147D64;
+}
+
